@@ -20,10 +20,19 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v4
+        with:
+          cache-disabled: false
+
+      - name: Ensure SDK Manager Licenses
+        run: yes | sdkmanager --licenses
+
+
       - name: Create local.properties
         run: |
-          echo "sdk.dir=$HOME/Android/Sdk" >> ./key.properties
-          echo "EXCHANGE_RATE_API_KEY=${{ secrets.EXCHANGE_RATE_API_KEY }}" >> ./key.properties
+          echo "sdk.dir=$HOME/Android/Sdk" >> ${{ github.workspace }}/local.properties
+          echo "EXCHANGE_RATE_API_KEY=${{ secrets.EXCHANGE_RATE_API_KEY }}" >> ${{ github.workspace }}/local.properties
 
       - name: Unit Tests
         run: bash ./gradlew test --stacktrace
