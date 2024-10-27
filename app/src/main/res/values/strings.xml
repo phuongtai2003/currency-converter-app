@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Currency Converter Application</string>
+    <string name="network_error">Cannot connect to server</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="invalid_input">Invalid input</string>
 </resources>

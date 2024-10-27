@@ -1,11 +1,20 @@
 plugins {
     alias(libs.plugins.android.application)
+    kotlin("kapt")
+    kotlin("plugin.parcelize")
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinAndroidKsp)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
     namespace = "com.phuongtai.myconverter"
     compileSdk = 34
+
+    buildFeatures{
+        buildConfig = true
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId = "com.phuongtai.myconverter"
@@ -45,4 +54,22 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Picasso
+    implementation(libs.picasso)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    // Moshi
+    implementation(libs.moshi)
+    implementation(libs.moshi.converter)
+
+    // Dotenv
+    implementation(libs.dotenv)
 }

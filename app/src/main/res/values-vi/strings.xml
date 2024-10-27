@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ứng dụng chuyển đổi tiền tệ</string>
+    <string name="network_error">Không thể kết nối đến máy chủ</string>
+    <string name="no_internet">Không có kết nối internet</string>
+    <string name="invalid_input">Dữ liệu không hợp lệ</string>
+</resources>
