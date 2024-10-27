@@ -2,7 +2,7 @@ package com.phuongtai.myconverter.data.remote.remote
 
 import com.phuongtai.myconverter.EXCHANGE_RATE_API_BASE_URL
 import com.squareup.moshi.Moshi
-import io.github.cdimascio.dotenv.Dotenv
+import io.github.cdimascio.dotenv.dotenv
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,7 +17,7 @@ private const val timeoutConnect = 10 // 10 seconds
 private const val contentType = "Content-Type"
 private const val contentTypeValue = "application/json"
 private const val ACCESS_KEY = "access_key" // Parameter name for API key
-private val API_KEY = Dotenv.load()["EXCHANGE_RATE_API_KEY"]
+private val API_KEY = dotenv()["EXCHANGE_RATE_API_KEY"]
 
 @Singleton
 class ServiceGenerator @Inject constructor() {
@@ -59,6 +59,7 @@ class ServiceGenerator @Inject constructor() {
 
     init {
         okHttpBuilder.addInterceptor(headerInterceptor)
+        okHttpBuilder.addInterceptor(accessKeyInterceptor)
         okHttpBuilder.addInterceptor(logger)
         okHttpBuilder.connectTimeout(timeoutConnect.toLong(), TimeUnit.SECONDS)
         okHttpBuilder.readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)

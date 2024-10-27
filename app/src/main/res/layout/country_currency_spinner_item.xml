@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@+id/currency_code"
+    android:text="VND"
+    android:fontFamily="@font/roboto_medium"
+    android:textSize="@dimen/font_20sp"
+    android:textColor="@color/colorPrimary"
+    android:drawablePadding="@dimen/margin_12dp"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:drawableStartCompat="@drawable/ic_vietnam"
+    android:padding="@dimen/margin_12dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    />

@@ -15,7 +15,9 @@ picasso = "2.8"
 retrofitVersion = "2.9.0"
 moshiVersion = "1.12.0"
 okhttpLoggerVersion = "4.9.1"
-dotenv = "5.2.2"
+dotenv = "6.4.2"
+lifeCycleVersion = "2.8.6"
+navigationFragment = "2.3.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,7 +28,11 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshiVersion" }
 moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofitVersion" }
 okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggerVersion" }
-dotenv = { group = "io.github.cdimascio", name = "java-dotenv", version.ref = "dotenv" }
+dotenv = { group = "io.github.cdimascio", name = "dotenv-kotlin", version.ref = "dotenv" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifeCycleVersion" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifeCycleVersion" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragment" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationFragment" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

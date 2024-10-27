@@ -55,6 +55,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Navigation
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+
+    // Lifecycle
+    androidTestImplementation(libs.lifecycle.livedata.ktx)
+    androidTestImplementation(libs.lifecycle.viewmodel.ktx)
+
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

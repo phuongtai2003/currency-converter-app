@@ -5,6 +5,10 @@
     android:id="@+id/image_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pages.ui.splash.SplashActivity">
+    tools:context=".pages.ui.splash.SplashActivity"
+    android:contentDescription="@null"
+    android:scaleType="centerInside"
+    app:srcCompat="@drawable/ic_money_exchange"
+    >
 
 </ImageView>
