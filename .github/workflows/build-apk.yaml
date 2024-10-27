@@ -19,6 +19,12 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
+
+      - name: Create local.properties
+        run: |
+          echo "sdk.dir=$HOME/Android/Sdk" >> ./key.properties
+          echo "EXCHANGE_RATE_API_KEY=${{ secrets.EXCHANGE_RATE_API_KEY }}" >> ./key.properties
+
       - name: Unit Tests
         run: bash ./gradlew test --stacktrace
 
