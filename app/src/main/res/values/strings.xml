@@ -1,6 +1,16 @@
 <resources>
-    <string name="app_name">Currency Converter Application</string>
+    <string name="app_name">Currency Converter</string>
+    <string name="app_description">Check live rates, set rate alerts, receive notifications and more.</string>
     <string name="network_error">Cannot connect to server</string>
     <string name="no_internet">No internet connection</string>
     <string name="invalid_input">Invalid input</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="not_allowed">Not allowed</string>
+    <string name="not_exist">API not exist</string>
+    <string name="amount">Amount</string>
+    <string name="amount_hint">Enter amount</string>
+    <string name="converted_amount">Converted Amount</string>
+    <string name="converted_amount_hint">Converted amount</string>
+    <string name="indicative_exchange_rate">Indicative exchange rate</string>
+    <string name="not_available">Not available</string>
 </resources>

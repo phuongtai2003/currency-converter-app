@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface ExchangeRateService {
     @GET("latest")
     suspend fun getLatestExchangeRate(
-        @Query("base") base: String,
-        @Query("symbols") symbols: String
+        @Query("base_currency") base: String,
+        @Query("currencies") currencies: String
     ): Response<ExchangeRateResponse>
 }

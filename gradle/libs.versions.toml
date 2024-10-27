@@ -2,6 +2,7 @@
 agp = "8.5.1"
 hiltAndroid = "2.50"
 kotlin = "2.0.21"
+kotlinCoroutinesVersion = "1.6.0"
 coreKtx = "1.10.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -15,7 +16,12 @@ picasso = "2.8"
 retrofitVersion = "2.9.0"
 moshiVersion = "1.12.0"
 okhttpLoggerVersion = "4.9.1"
-dotenv = "5.2.2"
+dotenv = "6.4.2"
+lifeCycleVersion = "2.6.1"
+navigationFragment = "2.3.5"
+androidArchVersion = "2.1.0"
+mockitoVersion = "4.0.0"
+mockkVersion = "1.13.12"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +31,19 @@ picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "pic
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshiVersion" }
 moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofitVersion" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshiVersion" }
 okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggerVersion" }
-dotenv = { group = "io.github.cdimascio", name = "java-dotenv", version.ref = "dotenv" }
+dotenv = { group = "io.github.cdimascio", name = "dotenv-kotlin", version.ref = "dotenv" }
+core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidArchVersion" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoVersion" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoVersion" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoVersion" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCoroutinesVersion" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifeCycleVersion" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifeCycleVersion" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragment" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationFragment" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
