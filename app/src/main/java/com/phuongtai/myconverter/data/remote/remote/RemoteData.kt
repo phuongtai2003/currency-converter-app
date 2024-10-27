@@ -11,20 +11,34 @@ import java.io.IOException
 import javax.inject.Inject
 
 class RemoteData @Inject constructor(private val serviceGenerator: ServiceGenerator, private val networkConnectivity: INetworkConnectivity) : RemoteDataSource {
-    override suspend fun getLatestExchangeRate(base: String, symbols: String): Resource<ExchangeRates> {
+    override suspend fun getLatestExchangeRate(base: String, currencies: String): Resource<ExchangeRates> {
         val exchangeRateService = serviceGenerator.createService(ExchangeRateService::class.java)
         return when(val response = processCall {
             exchangeRateService.getLatestExchangeRate(
                 base,
-                symbols
+                currencies
             )
         }) {
             is ExchangeRateResponse -> {
-                if(response.success){
-                    Resource.Success(ExchangeRates(response))
-                }
-                else{
-                    Resource.Error(response.error["code"] as Int? ?: DEFAULT_ERROR)
+                Resource.Success(ExchangeRates(response))
+            }
+            is Int -> {
+                when(response) {
+                    401 -> {
+                        Resource.Error(UNAUTHORIZED)
+                    }
+                    403 -> {
+                        Resource.Error(NOT_ALLOWED)
+                    }
+                    404 -> {
+                        Resource.Error(NOT_FOUND)
+                    }
+                    422 -> {
+                        Resource.Error(INVALID_INPUT)
+                    }
+                    else -> {
+                        Resource.Error(DEFAULT_ERROR)
+                    }
                 }
             }
             else ->{

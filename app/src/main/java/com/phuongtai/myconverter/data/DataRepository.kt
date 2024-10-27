@@ -11,10 +11,10 @@ import kotlin.coroutines.CoroutineContext
 class DataRepository @Inject constructor(private val remoteRepository: RemoteData, private val ioDispatcher: CoroutineContext) : DataRepositorySource {
     override suspend fun getLatestRates(
         base: String,
-        symbols: String
+        currencies: String
     ): Flow<Resource<ExchangeRates>> {
         return flow {
-            emit(remoteRepository.getLatestExchangeRate(base, symbols))
+            emit(remoteRepository.getLatestExchangeRate(base, currencies))
         }.flowOn(ioDispatcher)
     }
 

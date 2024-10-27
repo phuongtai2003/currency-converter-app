@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     kotlin("kapt")
@@ -24,6 +26,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val properties: Properties = Properties()
+        properties.load(rootProject.file("local.properties").inputStream())
+
+        buildConfigField("String", "EXCHANGE_RATE_KEY", "\"${properties.getProperty("EXCHANGE_RATE_API_KEY")}\"")
     }
 
     buildTypes {
@@ -77,7 +84,16 @@ dependencies {
     // Moshi
     implementation(libs.moshi)
     implementation(libs.moshi.converter)
+    implementation(libs.moshi.kotlin)
 
     // Dotenv
     implementation(libs.dotenv)
+
+    // Testing
+    testImplementation(libs.core.testing)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
 }

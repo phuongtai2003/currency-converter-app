@@ -1,6 +1,9 @@
 package com.phuongtai.myconverter.data.remote.remote
 
+import android.util.Log
+import com.phuongtai.myconverter.BuildConfig
 import com.phuongtai.myconverter.EXCHANGE_RATE_API_BASE_URL
+import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import io.github.cdimascio.dotenv.dotenv
 import okhttp3.Interceptor
@@ -16,8 +19,8 @@ private const val timeoutRead = 10 // 10 seconds
 private const val timeoutConnect = 10 // 10 seconds
 private const val contentType = "Content-Type"
 private const val contentTypeValue = "application/json"
-private const val ACCESS_KEY = "access_key" // Parameter name for API key
-private val API_KEY = dotenv()["EXCHANGE_RATE_API_KEY"]
+private const val ACCESS_KEY = "apikey" // Parameter name for API key
+private const val API_KEY = BuildConfig.EXCHANGE_RATE_KEY
 
 @Singleton
 class ServiceGenerator @Inject constructor() {
@@ -52,8 +55,9 @@ class ServiceGenerator @Inject constructor() {
     private val logger: HttpLoggingInterceptor
         get() {
             val logging = HttpLoggingInterceptor()
-
-            logging.level = HttpLoggingInterceptor.Level.BODY
+            if(BuildConfig.DEBUG) {
+                logging.level = HttpLoggingInterceptor.Level.BODY
+            }
             return logging
         }
 
@@ -75,8 +79,7 @@ class ServiceGenerator @Inject constructor() {
     }
 
     private fun getMoshi(): Moshi {
-        return Moshi.Builder()
-            .build()
+        return Moshi.Builder().add(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
     }
 
 }

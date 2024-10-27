@@ -103,24 +103,3 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     })
 }
 
-fun ImageView.loadImage(@DrawableRes resId: Int) = Picasso.get().load(resId).into(this)
-
-fun ImageView.loadImage(url: String) = Picasso.get().load(url).into(this)
-
-fun AppCompatTextView.setTextFutureExt(text: String) {
-    this.setTextFuture(
-        PrecomputedTextCompat.getTextFuture(
-        text,
-        TextViewCompat.getTextMetricsParams(this),
-        null
-    ))
-}
-
-fun AppCompatTextView.setTextFutureExt(text: CharSequence) {
-    this.setTextFuture(
-        PrecomputedTextCompat.getTextFuture(
-        text,
-        TextViewCompat.getTextMetricsParams(this),
-        null
-    ))
-}
