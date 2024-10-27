@@ -46,30 +46,6 @@ fun View.showSnackBar(message: String, duration: Int) {
     Snackbar.make(this, message, duration).show()
 }
 
-fun View.setupSnackBar(
-    lifecycleOwner: LifecycleOwner,
-    snackBarEvent: LiveData<SingleContent<Any>>,
-    duration: Int
-) {
-    snackBarEvent.observe(lifecycleOwner) { event ->
-        event.getContentIfNotHandled()?.let {
-            when(it) {
-                is String -> {
-                    hideKeyboard()
-                    showSnackBar(it, duration)
-                }
-                is Int ->{
-                    hideKeyboard()
-                    showSnackBar(this.context.getString(it), duration)
-                }
-                else -> {
-                    hideKeyboard()
-                }
-            }
-        }
-    }
-}
-
 fun View.showToast(
     lifecycleOwner: LifecycleOwner,
     toastEvent: LiveData<SingleContent<Any>>,
